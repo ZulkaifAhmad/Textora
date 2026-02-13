@@ -3,6 +3,7 @@ import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import UserReachOut from "../components/UserReach.jsx";
+import Slider from "../components/Slider.jsx";
 
 function About() {
   return (
@@ -41,11 +42,11 @@ function About() {
         </div>
         <div className="whotext h-full items-start justify-center w-1/2 flex flex-col gap-4">
           <h2 className="text-2xl text-purple-600">Who we Are</h2>
-          <p className="text-2xl">
+          <p className="text-xl">
             A platform dedicated to exploring ideas that matter. We are
             passionate creators and storytellers.{" "}
           </p>
-          <p className="text-2xl">
+          <p className="text-xl">
             Who believe in the power of words to inspire and connect. Our blog
             topics—from design and technology to lifestyle, travel, and beyond.
           </p>
@@ -87,7 +88,7 @@ function About() {
         </div>
       </div>
 
-      <div className="teamMembers  mt-30 w-full h-screen p-5">
+      <div className="teamMembers  mt-30  w-full h-screen p-5">
         <h1 className="text-6xl font-semibold lg:text-center">Team Members</h1>
         <div className="team-cards flex justify-between items-center gap-2 mt-12">
           <div className="team-card w-fit h-110 overflow-auto">
@@ -144,6 +145,7 @@ function About() {
         </div>
       </div>
 
+      <Slider />
 
     </div>
   );
