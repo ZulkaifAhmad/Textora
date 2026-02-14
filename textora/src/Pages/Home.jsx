@@ -5,6 +5,7 @@ import { Search } from "lucide-react";
 import Button from "../components/button";
 import ViewMoreCircle from "../components/Viewmore";
 import BlogCard from "../components/Blogcard";
+import PortfolioSection from "../components/recentVideos";
 
 function Home() {
   const brands = [
@@ -18,10 +19,14 @@ function Home() {
 
   return (
     <div id="main" className="main mt-20 lg:mt-30">
+
       <div className="flex flex-col-reverse lg:flex-row">
         <div className="left w-full lg:w-4/6 h-full px-5 lg:px-11 pt-5 lg:pt-10">
           <UserReachBadge />
-          <h1 id="heading" className="text-4xl lg:text-7xl mt-5 tracking-tighter">
+          <h1
+            id="heading"
+            className="text-4xl lg:text-7xl mt-5 tracking-tighter"
+          >
             Where Ideas Meet Simplicity Dive into <span> Articles on Life</span>
           </h1>
           <img src="./line.svg" alt="" className="w-1/2 lg:w-auto" />
@@ -54,11 +59,13 @@ function Home() {
       <div className="counts px-5 lg:px-11 flex flex-wrap lg:flex-nowrap gap-8 lg:gap-5 justify-center lg:justify-start mt-10">
         <div className="count flex flex-col items-center gap-1 w-1/3 lg:w-auto">
           <h1 className="text-3xl lg:text-5xl font-medium">480</h1>
-          <p className="text-sm lg:text-lg text-gray-700 font-medium text-center">Perfect Posts</p>
+          <p className="text-sm lg:text-lg text-gray-700 font-medium text-center">
+            Perfect Posts
+          </p>
         </div>
-        
+
         <div className="line h-20 w-0.5 bg-purple-200 hidden lg:block"></div>
-        
+
         <div className="count flex flex-col items-center gap-1 w-1/3 lg:w-auto">
           <h1 className="text-3xl lg:text-5xl font-medium">2K+</h1>
           <p className="text-sm lg:text-lg text-gray-700 tracking-wide font-medium text-center">
@@ -66,7 +73,7 @@ function Home() {
           </p>
         </div>
         <div className="line h-20 w-0.5 bg-purple-200 hidden lg:block"></div>
-        
+
         <div className="count flex flex-col items-center gap-1 w-1/3 lg:w-auto">
           <h1 className="text-3xl lg:text-5xl font-medium">100+</h1>
           <p className="text-sm lg:text-lg text-gray-700 tracking-wide font-medium text-center">
@@ -74,7 +81,7 @@ function Home() {
           </p>
         </div>
         <div className="line h-20 w-0.5 bg-purple-200 hidden lg:block"></div>
-        
+
         <div className="count flex flex-col items-center gap-1 w-1/3 lg:w-auto">
           <h1 className="text-3xl lg:text-5xl font-medium">2K</h1>
           <p className="text-sm lg:text-lg text-gray-700 tracking-wide font-medium text-center">
@@ -90,7 +97,6 @@ function Home() {
         </div>
 
         <div className="design-parts mt-10 lg:mt-15 flex flex-col lg:flex-row gap-10 lg:gap-7">
-          
           <div className="webDesign cursor-pointer flex flex-col gap-4 w-full lg:w-1/2">
             <div className="group relative h-64 lg:h-96 w-full overflow-hidden rounded-3xl bg-red-300">
               <div className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-110">
@@ -338,7 +344,9 @@ function Home() {
 
       <div className="ceo-message mt-20 px-5 lg:px-11">
         <div className="intro py-10 lg:py-20 flex flex-col gap-3 justify-center items-center">
-          <h1 className="text-4xl lg:text-7xl font-semibold text-center">Message from Our CEO</h1>
+          <h1 className="text-4xl lg:text-7xl font-semibold text-center">
+            Message from Our CEO
+          </h1>
           <p className="text-lg lg:text-xl w-full lg:w-2/3 text-center text-gray-800">
             The creative mind behind With a passion for storytelling and an
             insatiable curiosity, I explore a wide range of topics and beyond.
@@ -380,11 +388,18 @@ function Home() {
                   alt={`${brand.name} logo`}
                   loading="lazy"
                 />
-                <span className="text-2xl lg:text-4xl text-gray-400">{brand.name}</span>
+                <span className="text-2xl lg:text-4xl text-gray-400">
+                  {brand.name}
+                </span>
               </div>
             ))}
           </div>
         </div>
+
+        <div className="recentVideos mt-30">
+        <h1 className="text-6xl font-semibold text-center mb-10">Recent Videos</h1>
+        <PortfolioSection />
+      </div>
       </div>
     </div>
   );
