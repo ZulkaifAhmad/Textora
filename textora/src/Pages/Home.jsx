@@ -7,7 +7,8 @@ import ViewMoreCircle from "../components/Viewmore";
 import BlogCard from "../components/Blogcard";
 import PortfolioSection from "../components/recentVideos";
 import { useNavigate } from "react-router-dom";
-import {blog} from "../components/Articles";
+import { blog } from "../components/Articles";
+import { work } from "../components/Articles";
 
 function Home() {
   const finalBlogs = blog.slice(1, 2);
@@ -175,8 +176,8 @@ function Home() {
           ))}
         </div>
       </div>
-        <div  className="blogCards mt-20 px-5 lg:px-11 flex flex-col lg:flex-row justify-between gap-10 lg:gap-5 items-center">
-      {blogs.map((blog, index) => (
+      <div className="blogCards mt-20 px-5 lg:px-11 flex flex-col lg:flex-row justify-between gap-10 lg:gap-5 items-center">
+        {blogs.map((blog, index) => (
           <BlogCard
             slug={blog.slug}
             key={index}
@@ -186,8 +187,8 @@ function Home() {
             author={`${blog.author}`}
             date={`${blog.date}`}
           />
-      ))}
-        </div>
+        ))}
+      </div>
 
       <div className="ourWork px-5 lg:px-11 pt-20">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 lg:gap-0">
@@ -197,101 +198,29 @@ function Home() {
           </div>
         </div>
         <div className="ourwork-cards flex flex-wrap items-start gap-5">
-          <div className="ourwork-card cursor-pointer flex flex-col gap-3 mt-10 w-full md:w-[calc(50%-10px)]">
-            <div className="ourworkImage overflow-hidden relative group">
-              <div className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <ViewMoreCircle size={120} />
+          {work.map((work, index) => (
+            <div onClick={()=> navigate(`/work/${work.slug}`)} className="ourwork-card cursor-pointer flex flex-col gap-3 mt-10 w-full md:w-[calc(50%-10px)]">
+              <div className="ourworkImage overflow-hidden relative group">
+                <div className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <ViewMoreCircle size={120} />
+                </div>
+                <img
+                  src={work.image}
+                  className="w-full rounded-3xl group-hover:scale-102 relative z-10 h-64 lg:h-96 object-cover transition-transform duration-500 ease-in-out"
+                  alt={work.title}
+                />
               </div>
-              <img
-                src="/work1.avif"
-                className="w-full rounded-3xl group-hover:scale-102 relative z-10 h-64 lg:h-96 object-cover transition-transform duration-500 ease-in-out"
-                alt="work image"
-              />
-            </div>
-            <div className="flex gap-3 items-center">
-              <p className="p-3 text-sm lg:text-lg rounded-4xl border border-purple-400 w-fit">
-                UX Design
-              </p>
-              <p className="p-3 text-sm lg:text-lg rounded-4xl border border-purple-400 w-fit">
-                Mobile App
-              </p>
-            </div>
-            <h1 className="text-xl lg:text-2xl">
-              AI Flying The Secrets to Intuitive App DesignCreating Seamless
-              User Experiences
-            </h1>
-          </div>
-          <div className="ourwork-card cursor-pointer flex flex-col gap-3 mt-10 w-full md:w-[calc(50%-10px)]">
-            <div className="ourworkImage overflow-hidden relative group">
-              <div className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <ViewMoreCircle size={120} />
+              <div className="flex gap-3 items-center">
+                <p className="p-3 text-sm lg:text-lg rounded-4xl border border-purple-400 w-fit">
+                  {work.tagOne}
+                </p>
+                <p className="p-3 text-sm lg:text-lg rounded-4xl border border-purple-400 w-fit">
+                  {work.tagTwo}
+                </p>
               </div>
-              <img
-                src="/work2.avif"
-                className="w-full rounded-3xl group-hover:scale-102 relative z-10 h-64 lg:h-96 object-cover transition-transform duration-500 ease-in-out"
-                alt="work image"
-              />
+              <h1 className="text-xl lg:text-2xl">{work.title}</h1>
             </div>
-            <div className="flex gap-3 items-center">
-              <p className="p-3 text-sm lg:text-lg rounded-4xl border border-purple-400 w-fit">
-                UI Design
-              </p>
-              <p className="p-3 text-sm lg:text-lg rounded-4xl border border-purple-400 w-fit">
-                Website
-              </p>
-            </div>
-            <h1 className="text-xl lg:text-2xl">
-              Cozmo Web Design Trends for 2024 Ideas to Elevate Your Online
-              Presence.
-            </h1>
-          </div>
-          <div className="ourwork-card cursor-pointer flex flex-col gap-3 mt-10 w-full md:w-[calc(50%-10px)]">
-            <div className="ourworkImage overflow-hidden relative group">
-              <div className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <ViewMoreCircle size={120} />
-              </div>
-              <img
-                src="/work3.avif"
-                className="w-full rounded-3xl group-hover:scale-102 relative z-10 h-64 lg:h-96 object-cover transition-transform duration-500 ease-in-out"
-                alt="work image"
-              />
-            </div>
-            <div className="flex gap-3 items-center">
-              <p className="p-3 text-sm lg:text-lg rounded-4xl border border-purple-400 w-fit">
-                Design
-              </p>
-              <p className="p-3 text-sm lg:text-lg rounded-4xl border border-purple-400 w-fit">
-                Dashboard
-              </p>
-            </div>
-            <h1 className="text-xl lg:text-2xl">
-              The Art of Branding – Designing Visual Identities That Truly Stand
-              Out
-            </h1>
-          </div>
-          <div className="ourwork-card cursor-pointer flex flex-col gap-3 mt-10 w-full md:w-[calc(50%-10px)]">
-            <div className="ourworkImage overflow-hidden relative group">
-              <div className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <ViewMoreCircle size={120} />
-              </div>
-              <img
-                src="/work4.avif"
-                className="w-full rounded-3xl group-hover:scale-102 relative z-10 h-64 lg:h-96 object-cover transition-transform duration-500 ease-in-out"
-                alt="work image"
-              />
-            </div>
-            <div className="flex gap-3 items-center">
-              <p className="p-3 text-sm lg:text-lg rounded-4xl border border-purple-400 w-fit">
-                UI Design
-              </p>
-              <p className="p-3 text-sm lg:text-lg rounded-4xl border border-purple-400 w-fit">
-                Dashboard
-              </p>
-            </div>
-            <h1 className="text-xl lg:text-2xl">
-              Designing Intuitive Dashboards Data Accessible and Actionable
-            </h1>
-          </div>
+          ))}
         </div>
       </div>
 
@@ -302,50 +231,20 @@ function Home() {
         </div>
 
         <div className="blogCards mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          <BlogCard
-            image="/branding.avif"
-            category="Branding"
-            title="Building a Strong Brand Identity Beyond The Logo"
-            author="Jane Austen"
-            date="Mar 17, 2025"
-          />
-          <BlogCard
-            image="/webdesign.avif"
-            category="Website"
-            title="Building a Strong Website Identity Beyond The Logo"
-            author="Jane Austen"
-            date="Mar 17, 2025"
-          />
-          <BlogCard
-            image="/logo design.avif"
-            category="Logo Design"
-            title="The Science Behind a Perfect Logo Tips for Timeless"
-            author="Adolf Austen"
-            date="Mar 17, 2023"
-          />
-          <BlogCard
-            image="/work4.avif"
-            category="Dashboard"
-            title="The Science Behind a Perfect Dashboard Tips for Timeless"
-            author="Adolf Austen"
-            date="Mar 17, 2023"
-          />
-          <BlogCard
-            image="/graphics design.avif"
-            category="Graphics Design"
-            title=" Top 10 Graphic Design Trends to Watch This Year"
-            author="Jams Bond"
-            date="Feb 17, 2025"
-          />
-          <BlogCard
-            image="/appdesign.png"
-            category="Mobile App"
-            title="Designing Apps That Delight: A Guide to Engaging Interfaces"
-            author="Jams Bond"
-            date="Feb 17, 2025"
-          />
+          {blog.map((blog, index) => (
+            <BlogCard
+              slug={blog.slug}
+              key={index}
+              image={`${blog.image}`}
+              category={`${blog.category}`}
+              title={`${blog.title}`}
+              author={`${blog.author}`}
+              date={`${blog.date}`}
+            />
+          ))}
         </div>
       </div>
+
 
       <div className="ceo-message mt-20 px-5 lg:px-11">
         <div className="intro py-10 lg:py-20 flex flex-col gap-3 justify-center items-center">

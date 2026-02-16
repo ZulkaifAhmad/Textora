@@ -1,3 +1,4 @@
+
 let blog = [
   {
     title: "Building a Strong Brand Identity Beyond The Logo",
@@ -264,6 +265,8 @@ let sideBlog = [
 
 let work = [
   {
+    tagOne : "UX Design",
+    tagTwo : "Mobile App",
     title : "AI Flying The Secrets to Intuitive App DesignCreating Seamless User Experiences",
     slug : "ai-flying-the-secrets-to-intuitive-app-designcreating-seamless-user-experiences",
     image : "/work1.avif",
@@ -280,6 +283,8 @@ let work = [
 
   },
   {
+    tagOne : "UI Design",
+    tagTwo : "Website",
     title : "Cozmo Web Design Trends for 2024 Ideas to Elevate Your Online Presence.",
     slug : "cozmo-web-design-trends-for-2024-ideas-to-elevate-your-online-presence",
     image : "/work2.avif",
@@ -295,6 +300,8 @@ let work = [
     description : "Staying on top of web design trends is essential for creating a modern and engaging online presence. By incorporating minimalist design, dark mode, microinteractions, 3D elements, voice user interfaces, and sustainable design "
   },
   {
+    tagOne : "Design",
+    tagTwo : "Dashboard" ,
     title : "The Art of Branding  Designing Visual Identities That Truly Stand Out",
     slug : "the-art-of-branding-designing-visual-identities-that-truly-stand-out",
     image : "/work3.avif",
@@ -310,6 +317,8 @@ let work = [
     description : "Designing a visual identity that truly stands out requires a deep understanding of your brands core values, a unique logo, a cohesive color palette, the right typography, consistency across platforms, and the willingness to evolve over time. By focusing on these key elements, you can create a powerful and memorable brand identity that resonates with your audience and sets your business apart in a competitive market.",
   },
   {
+    tagOne : "UI Design" ,
+    tagTwo : "Dashbaord",
     title : "Designing Intuitive Dashboards Data Accessible and Actionable",
     slug : "designing-intuitive-dashboards-data-accessible-and-actionable",
     image : "/work4.avif",

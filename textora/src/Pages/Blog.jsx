@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   ChevronRight,
   Facebook,
@@ -9,8 +9,16 @@ import {
 } from "lucide-react";
 import ViewMoreCircle from "../components/Viewmore";
 import BlogCard from "../components/Blogcard";
+import { blog , sideBlog } from "../components/Articles";
+
+
 
 function Blog() {
+    const finalBlogs2 = blog.slice(2, 3);
+    let navigate = useNavigate();
+      const blogs = blog.slice(2, 4);
+      const blogsTwo = blog.slice(4, 6);
+    
   return (
     <div className="blog mt-24 md:mt-40 px-6 md:px-11">
       <div className="navigation flex gap-2 items-center">
@@ -35,15 +43,16 @@ function Blog() {
 
       <div className="featuredBlog mt-12 md:mt-20">
         <div className="design-parts flex flex-col lg:flex-row gap-10">
-          <div className="webDesign cursor-pointer flex flex-col gap-4 w-full lg:w-2/3">
+          {finalBlogs2.map((blogs , index)=> (
+          <div key={index} onClick={()=> navigate(`/blog/${blogs.slug}`)} className="webDesign cursor-pointer flex flex-col gap-4 w-full lg:w-2/3">
             <div className="group relative h-64 md:h-80 lg:h-100 w-full overflow-hidden rounded-3xl bg-red-300">
               <div className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <ViewMoreCircle size={120} />
               </div>
               <img
-                src="/appdesign.png"
+                src={blogs.image}
                 className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105 relative z-10"
-                alt="App Design"
+                alt={blogs.title}
               />
               <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/20 z-20 pointer-events-none" />
             </div>
@@ -52,55 +61,40 @@ function Blog() {
                 Web Design
               </p>
               <h1 className="text-xl md:text-3xl tracking-wide font-semibold">
-                The Evolution of Web Design From Static to Dynamic
+                {blogs.title}
               </h1>
               <p className="text-base md:text-lg text-gray-600">
                 Web design has evolved from static pages to dynamic, interactive
                 experiences. Modern sites adapt to users in real-time.
               </p>
               <div className="flex items-center gap-4 text-sm md:text-base">
-                <p className="font-medium">By Alicon Atiqs</p>
-                <p className="text-gray-400">Apr 20, 2025</p>
+                <p className="font-medium">{blogs.author}</p>
+                <p className="text-gray-400">{blogs.date}</p>
               </div>
             </div>
           </div>
+          ))}
 
           <div className="right-sidebar w-full lg:w-1/3">
             <div className="blogCards flex flex-col gap-6">
-              {[
-                {
-                  src: "/process.avif",
-                  title: "Design Process: From Concept to Completion",
-                },
-                {
-                  src: "/perfectFeature.avif",
-                  title: "Design Process: From Concept to Completion",
-                },
-                {
-                  src: "/shirt.avif",
-                  title: "Designing the Perfect Feature comparison table",
-                },
-                {
-                  src: "/behindApp.avif",
-                  title: "Behind the App Design A Day in the Life",
-                },
-              ].map((item, index) => (
-                <div key={index} className="blogcard flex gap-4 items-center">
+              {sideBlog.map((item, index) => (
+                <div key={index} onClick={()=> navigate(`/blog/${item.slug}`)} className="blogcard flex gap-4 items-center">
                   <img
-                    src={item.src}
-                    className="w-24 h-20 md:w-32 md:h-24 rounded-2xl object-cover"
-                    alt=""
+                    src={item.image}
+                    className="w-24 h-20 md:w-26 md:h-24 rounded-2xl object-cover"
+                    alt={item.title}
                   />
                   <div className="flex flex-col gap-1">
                     <p className="text-base md:text-lg font-medium line-clamp-2 leading-snug">
                       {item.title}
                     </p>
-                    <p className="text-sm text-gray-500">Feb 7, 2023</p>
+                    <p className="text-sm text-gray-500">{item.date}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
+
         </div>
       </div>
 
@@ -110,37 +104,32 @@ function Blog() {
             Recent Posts
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <BlogCard
-              image="/branding.avif"
-              category="Branding"
-              title="Building a Strong Brand Identity Beyond The Logo"
-              author="Jane Austen"
-              date="Mar 17, 2025"
-            />
-            <BlogCard
-              image="/logo design.avif"
-              category="Logo Design"
-              title="The Science Behind a Perfect Logo Tips for Timeless"
-              author="Adolf Austen"
-              date="Mar 17, 2023"
-            />
+            {blogs.map((blog, index) => (
+          <BlogCard
+            slug={blog.slug}
+            key={index}
+            image={`${blog.image}`}
+            category={`${blog.category}`}
+            title={`${blog.title}`}
+            author={`${blog.author}`}
+            date={`${blog.date}`}
+          />
+        ))}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-            <BlogCard
-              image="/appdesign.png"
-              category="Website Applications"
-              title="Building a Strong Application Identity Beyond Coding"
-              author="Zulkaif Austen"
-              date="Jun 17, 2005"
-            />
-            <BlogCard
-              image="/behindApp.avif"
-              category="Behind App Design"
-              title="The Science Behind a Perfect Application Tips for Timeless"
-              author="Adolf Austen"
-              date="Mar 17, 2023"
-            />
+            {blogsTwo.map((blog, index) => (
+          <BlogCard
+            slug={blog.slug}
+            key={index}
+            image={`${blog.image}`}
+            category={`${blog.category}`}
+            title={`${blog.title}`}
+            author={`${blog.author}`}
+            date={`${blog.date}`}
+          />
+        ))}
+            
           </div>
         </div>
 

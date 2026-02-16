@@ -2,14 +2,14 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
-import { blog , sideBlog} from "../components/Articles";
+import { work } from "../components/Articles";
 
-function BlogDetails() {
+function WorkDetails() {
   const { id } = useParams();
-  const blogDetailsTwo = sideBlog.find((item) => item.slug === id);
-  const blogDetails = blog.find((item) => item.slug === id);
-    const currentBlog = blogDetails || blogDetailsTwo;
-  if (!currentBlog) return <div className='mt-40 px-11 text-center'>Blog not found</div>;
+  const blogDetails = work.find((item) => item.slug === id);
+
+  if (!blogDetails) return <div className='mt-40 px-11 text-center'>Blog not found</div>;
+
   const {
     title,
     image,
@@ -28,7 +28,7 @@ function BlogDetails() {
     questionTwo_ansThree,
     questionTwo_ansFour,
     description
-  } = currentBlog;
+  } = blogDetails;
 
   return (
     <div className='mt-40 px-6 mb-20 flex flex-col items-center'>
@@ -38,8 +38,8 @@ function BlogDetails() {
                     Home
                 </Link>
                 <ChevronRight size={18} />
-                <Link to={"/blog"} className="hover:text-purple-600 text-base md:text-lg">
-                    Blog
+                <Link to={"/work"} className="hover:text-purple-600 text-base md:text-lg">
+                    Work
                 </Link>
                 <ChevronRight size={18} />
                 <p className="text-base truncate w-50 md:text-lg text-purple-600 cursor-pointer">
@@ -92,4 +92,4 @@ function BlogDetails() {
   )
 }
 
-export default BlogDetails
+export default WorkDetails
