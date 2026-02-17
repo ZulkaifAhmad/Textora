@@ -3,10 +3,14 @@ import ViewMoreCircle from "./Viewmore";
 import "../App.css";
 import { useNavigate } from "react-router-dom";
 
-const BlogCard = ({ image, key , slug , category, title, author, date }) => {
+const BlogCard = ({ image, key, slug, category, title, author, date }) => {
   const navigate = useNavigate();
   return (
-    <div key={key} onClick={() => navigate(`/blog/${slug}`)} className="w-full max-w-[450px] cursor-pointer group/card">
+    <div
+      key={key}
+      onClick={() => navigate(`/blog/${slug}`)}
+      className="w-full max-w-[450px] cursor-pointer group/card"
+    >
       <div className="relative h-80 w-full overflow-hidden rounded-3xl bg-gray-200 group">
         <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black/10">
           <ViewMoreCircle size={100} />

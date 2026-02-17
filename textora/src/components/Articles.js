@@ -4,6 +4,7 @@ let blog = [
     title: "Building a Strong Brand Identity Beyond The Logo",
     slug: "building-a-strong-brand-identity-beyond-the-logo",
     image: "/branding.avif",
+    category: "Branding",
     author: "John Doe",
     date: "Mar 15, 2024",
     content:
@@ -27,6 +28,7 @@ let blog = [
     title: "The Evolution of Web Design From Static to Dynamic",
     slug: "the-evolution-of-web-design-from-static-to-dynamic",
     image: "/webdesign.avif",
+    category: "Website Design",
     author: "Alicon Atiqs",
     date: "Jun 22, 2003",
     content:
@@ -60,6 +62,7 @@ let blog = [
     slug: "designing-apps-that-delight-a-guide-to-engaging-interfaces",
     image: "/appdesign.png",
     author: "Jane Austen",
+    category: "Mobile App",
     date: "Feb 23, 2025",
     content:
       "In todays crowded digital landscape, an app’s success hinges not just on functionality—but on how it feels to use. An engaging interface can be the difference between an app users love and one they abandon. This blog dives into the core principles of designing interfaces that are not just usable, but delightful, memorable, and sticky.",
